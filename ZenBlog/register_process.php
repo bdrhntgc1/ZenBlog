@@ -4,7 +4,7 @@ require 'db.php';
 $username = $_POST['username'];
 $password = md5($_POST['password']);
 
-// Aynı kullanıcı adı var mı kontrol et
+
 $sql_check = "SELECT * FROM users WHERE username='$username'";
 $result = $conn->query($sql_check);
 
