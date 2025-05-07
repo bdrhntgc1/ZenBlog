@@ -63,11 +63,7 @@ if (!isset($_SESSION['username'])) {
           <li><a href="single-post.php">Single Post</a></li>
           <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
           
-          <?php if (isset($_SESSION['username'])): ?>
-        <li><a href="logout.php">Çıkış Yap</a></li>
-    <?php else: ?>
-        <li><a href="login.php">Giriş Yap</a></li>
-    <?php endif; ?>
+          
             <ul>
               <li><a href="category.php">Category 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -85,6 +81,11 @@ if (!isset($_SESSION['username'])) {
             </ul>
           </li>
           <li><a href="contact.php">Contact</a></li>
+            <?php if (isset($_SESSION['username'])): ?>
+        <li><a href="logout.php">Çıkış Yap</a></li>
+    <?php else: ?>
+        <li><a href="login.php">Giriş Yap</a></li>
+    <?php endif; ?>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
