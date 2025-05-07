@@ -2,7 +2,7 @@
 require 'db.php';
 
 $username = $_POST['username'];
-$password = md5($_POST['password']); // Parolan md5 hashlenmişse
+$password = md5($_POST['password']); 
 
 $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 $result = $conn->query($sql);
