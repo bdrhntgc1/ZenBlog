@@ -4,7 +4,7 @@
 <head>
     <title>Kayıt Ol</title>
     <style>
-        /* login.php ile aynı stiller burada da geçerli */
+        
         body {
             font-family: Arial, sans-serif;
             background: #f5f5f5;
