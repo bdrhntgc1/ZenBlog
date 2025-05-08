@@ -134,7 +134,7 @@ if (!isset($_SESSION['username'])) {
 
             <div class="swiper-slide" style="background-image: url('assets/img/post-slide-1.jpg');">
               <div class="content">
-                <h2><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+                <h2><a href="post.php?id=<?= $row['id'] ?>" <?= htmlspecialchars($row['title']) ?>The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
               </div>
             </div>
