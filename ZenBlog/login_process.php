@@ -1,6 +1,7 @@
 <?php
 require 'db.php';
 
+
 $username = $_POST['username'];
 $password = md5($_POST['password']); 
 
@@ -12,11 +13,12 @@ if ($result->num_rows == 1) {
     session_start();
     $_SESSION['username'] = $user['username'];
     $_SESSION['role'] = $user['role'];
+    $_SESSION['user_id'] = $user['id'];
    
 
 
     if ($user['role'] == 'admin') {
-        header("Location: admin.php");
+        header("Location: admin/index.php");
     } else {
         header("Location: index.php");
     }

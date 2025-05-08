@@ -61,9 +61,12 @@ if (!isset($_SESSION['username'])) {
           <li><a href="index.php" class="active">Home</a></li>
           <li><a href="about.php">About</a></li>
           <li><a href="single-post.php">Single Post</a></li>
+          <?php if (isset($_SESSION['username'])): ?>
+        <li><a href="logout.php">Çıkış Yap</a></li>
+    <?php else: ?>
+        <li><a href="login.php">Giriş Yap</a></li>
+    <?php endif; ?>
           <li class="dropdown"><a href="#"><span>Categories</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-          
-          
             <ul>
               <li><a href="category.php">Category 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -81,11 +84,6 @@ if (!isset($_SESSION['username'])) {
             </ul>
           </li>
           <li><a href="contact.php">Contact</a></li>
-            <?php if (isset($_SESSION['username'])): ?>
-        <li><a href="logout.php">Çıkış Yap</a></li>
-    <?php else: ?>
-        <li><a href="login.php">Giriş Yap</a></li>
-    <?php endif; ?>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -134,7 +132,7 @@ if (!isset($_SESSION['username'])) {
 
             <div class="swiper-slide" style="background-image: url('assets/img/post-slide-1.jpg');">
               <div class="content">
-                <h2><a href="post.php?id=<?= $row['id'] ?>" <?= htmlspecialchars($row['title']) ?>The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
+                <h2><a href="single-post.html">The Best Homemade Masks for Face (keep the Pimples Away)</a></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem neque est mollitia! Beatae minima assumenda repellat harum vero, officiis ipsam magnam obcaecati cumque maxime inventore repudiandae quidem necessitatibus rem atque.</p>
               </div>
             </div>
@@ -626,7 +624,6 @@ if (!isset($_SESSION['username'])) {
   <?php
 require 'db.php';
 
-// Yazıları tarihe göre yeni → eski sırala
 $sql = "SELECT * FROM posts ORDER BY created_at DESC";
 $result = $conn->query($sql);
 

@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'zenblog';
 $user = 'root';
-$pass = ''; // WAMP/XAMPP için genellikle şifre boş olur
+$pass = ''; 
 
 $conn = new mysqli($host, $user, $pass, $db);
 

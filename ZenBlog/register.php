@@ -59,6 +59,7 @@
         <form action="register_process.php" method="POST">
             <input type="text" name="username" placeholder="Kullanıcı Adı" required>
             <input type="password" name="password" placeholder="Şifre" required>
+            <input type="email" name="email" placeholder="Email" required>
             <button type="submit">Kayıt Ol</button>
         </form>
 

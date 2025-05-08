@@ -2,20 +2,24 @@
 require 'db.php';
 
 $username = $_POST['username'];
-$password = md5($_POST['password']);
+$password = $_POST['password'];
+$email = $_POST['email'];
+$created_at = date('Y-m-d H:i:s');
 
-
-$sql_check = "SELECT * FROM users WHERE username='$username'";
-$result = $conn->query($sql_check);
-
+// Kullanıcı adı zaten var mı kontrolü (opsiyonel)
+$result = $conn->query("SELECT * FROM users WHERE username = '$username'");
 if ($result->num_rows > 0) {
     header("Location: register.php?error=1");
+    exit();
+}
+
+// Kullanıcıyı ekle
+$sql = "INSERT INTO users (username, password, email, created_at) 
+        VALUES ('$username', '$password', '$email', '$created_at')";
+
+if ($conn->query($sql) === TRUE) {
+    header("Location: register.php?success=1");
 } else {
-    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
-    if ($conn->query($sql) === TRUE) {
-        header("Location: register.php?success=1");
-    } else {
-        echo "Hata: " . $conn->error;
-    }
+    echo "Hata: " . $conn->error;
 }
 ?>
